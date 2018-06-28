@@ -1,9 +1,10 @@
 <?php
+    session_start();
     require_once ('../models/dao/connexiondb.class.php');
     require_once ('../models/structure/Formation.class.php');
     require_once ('../models/dao/formationsDAO.php');
 
-
+    $idAdmin = $_SESSION['idAdmin'];
     if (isset($_GET['idCours'],$_GET['idEntreprise'])){
         $idCours = $_GET['idCours'];
         $idEntreprise = $_GET['idEntreprise'];

@@ -40,6 +40,7 @@ class FormationsDAO
         $str = "UPDATE formation SET etat = 0, idAdmin = :idAdmin WHERE idCours = :idCours AND idEntreprise=:id";
         $req = $this->db->prepare($str);
         $res = $req->execute(array(
+            'idAdmin'=> $formation->getIdAdmin(),
             'id'=> $formation->getIdEntreprise(),
             'idCours'=>$formation->getIdCours()
             ));

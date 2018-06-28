@@ -7,7 +7,21 @@
     require_once("../models/structure/Formation.class.php");
 
     if(isset($_POST['name'],$_POST['adresse'],$_POST['email'],$_POST['phone'],$_POST['datedebut'],
-        $_POST['datefin'], $_POST['idCours'])){
+        $_POST['datefin'], $_POST['idCours'],$_FILES['file'])){
+
+            if ($_FILES['file']['size'] <= 5000000) {
+                $infosfichier = pathinfo($_FILES['file']['name']);
+                $extension_upload = $infosfichier['extension'];
+                $extension_autorisees = array('pdf','docx');
+                if (in_array($extension_upload, $extension_autorisees)) {
+                    move_uploaded_file($_FILES['file']['tmp_name'],'../uploads/' .basename($_FILES['file']['name']));
+                }
+                else{
+                    print_r("Mauvais format de fichier");
+                }
+            }else{
+                print_r("Taille du fichier trop grand");
+            }
 
             $idCours = $_POST['idCours'];
             $ent = new Entreprise(0,$_POST['name'],$_POST['adresse'],$_POST['email'],$_POST['phone']);

@@ -100,7 +100,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="col-md-12 w3l_about_bottom_right">
 	<h3 class="tittle why text-center">Réservation</h3>
 		<div class="book-form">
-		<form action="controllers/subscribe.php" method="post">
+		<form action="controllers/subscribe.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="idCours" value="<?php echo $_GET['idCours'];?>">
 			<div class="col-md-6 form-date-w3-agileits">
 				<label><i class="fa fa-user" aria-hidden="true"></i> Entreprise Name :</label>
@@ -136,10 +136,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--				<label><i class="fa fa-users" aria-hidden="true"></i> Nombre d'Agent :</label>-->
 <!--				<input type="number" name="nbAgent" class="form-control" min="1">-->
 <!--			</div>-->
-<!--			<div class="col-md-6 form-number-w3-agileits">-->
-<!--				<label><i class="fa fa-file" aria-hidden="true"></i> Fichier:</label>-->
-<!--				<input type="file" name="nbAgent" class="form-control" min="1">-->
-<!--			</div>-->
+			<div class="col-md-6 form-number-w3-agileits">
+				<label><i class="fa fa-file" aria-hidden="true"></i> Fichier:</label>
+				<input type="file" name="file" class="form-control" min="1">
+			</div>
 			<div class="clearfix"> </div>
 			<div class="make wow shake" data-wow-duration="1s" data-wow-delay=".5s">
 				<input type="submit" value="Make a Reservation">
